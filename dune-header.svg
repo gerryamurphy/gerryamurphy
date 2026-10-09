@@ -42,6 +42,29 @@
       0%   { opacity: 1; transform: translate(0, 0) }
       100% { opacity: 0; transform: translate(-18px, -40px) }
     }
+
+    .worm { transform-origin: 232px 240px; animation: breach 14s ease-in-out infinite; }
+    @keyframes breach {
+      0%, 36%   { transform: translateY(190px) rotate(-14deg) }
+      48%       { transform: translateY(0) rotate(-6deg) }
+      58%       { transform: translateY(0) rotate(6deg) }
+      72%       { transform: translateY(25px) rotate(56deg) }
+      78%       { transform: translateY(60px) rotate(66deg) }
+      79%, 100% { transform: translateY(190px) rotate(-14deg) }
+    }
+    .sway { transform-box: fill-box; transform-origin: 50% 100%; animation: sway 3s ease-in-out infinite alternate; }
+    @keyframes sway { from { transform: rotate(-1.5deg) } to { transform: rotate(1.5deg) } }
+    .rider { animation: rider 14s linear infinite; }
+    @keyframes rider { 0%, 67% { opacity: 1 } 72%, 100% { opacity: 0 } }
+    .cloak { transform-box: fill-box; transform-origin: 100% 0%; animation: cloak .5s ease-in-out infinite alternate; }
+    @keyframes cloak { from { transform: skewY(-6deg) scaleX(.9) } to { transform: skewY(6deg) scaleX(1.1) } }
+    .spray { opacity: 0; transform-box: fill-box; transform-origin: center; }
+    .sp1 { animation: sp1 14s ease-out infinite; } .sp2 { animation: sp2 14s ease-out infinite; }
+    .sp3 { animation: sp3 14s ease-out infinite; } .sp4 { animation: sp4 14s ease-out infinite; }
+    @keyframes sp1 { 0%,40% { opacity: 0; transform: translate(0,0) scale(.3) } 42% { opacity: .9 } 58%,100% { opacity: 0; transform: translate(-55px,-50px) scale(2.6) } }
+    @keyframes sp2 { 0%,41% { opacity: 0; transform: translate(0,0) scale(.3) } 43% { opacity: .9 } 59%,100% { opacity: 0; transform: translate(60px,-40px) scale(2.4) } }
+    @keyframes sp3 { 0%,67% { opacity: 0; transform: translate(0,0) scale(.3) } 69% { opacity: .9 } 85%,100% { opacity: 0; transform: translate(-40px,-35px) scale(2.8) } }
+    @keyframes sp4 { 0%,68% { opacity: 0; transform: translate(0,0) scale(.3) } 70% { opacity: .9 } 86%,100% { opacity: 0; transform: translate(45px,-45px) scale(2.5) } }
   </style>
 
   <g clip-path="url(#frame)">
@@ -104,6 +127,35 @@
 
     <!-- mid dunes -->
     <path d="M0 170 Q150 140 300 160 T560 150 T800 158 L800 220 L0 220Z" fill="#a8622a"/>
+
+    <!-- giant sandworm breaching -->
+    <g class="worm"><g class="sway">
+      <path d="M232 240 C226 170 242 112 300 84" fill="none" stroke="#5e4330" stroke-width="40" stroke-linecap="round"/>
+      <path d="M232 240 C226 170 242 112 300 84" fill="none" stroke="#9a7650" stroke-width="34" stroke-linecap="round"/>
+      <path d="M232 240 C226 170 242 112 300 84" fill="none" stroke="#5e4330" stroke-width="35" stroke-dasharray="2.5 10" stroke-opacity=".75"/>
+      <path d="M222 240 C218 175 232 120 288 90" fill="none" stroke="#c9a676" stroke-width="5" stroke-opacity=".45" stroke-linecap="round"/>
+      <g transform="translate(303,82) rotate(-25)">
+        <ellipse rx="11" ry="24" fill="#7a5a3e"/>
+        <ellipse rx="8" ry="20" fill="#2a120a"/>
+        <ellipse rx="6" ry="16" fill="none" stroke="#f3e6c8" stroke-width="3.5" stroke-dasharray="1.6 2.6"/>
+        <ellipse rx="3" ry="9" fill="#c2602a" fill-opacity=".5"/>
+      </g>
+      <!-- rider on the worm's back -->
+      <g class="rider">
+        <line x1="259" y1="73" x2="279" y2="84" stroke="#2e231c" stroke-width="2.2" stroke-linecap="round"/>
+        <line x1="277" y1="80" x2="284" y2="97" stroke="#c9a676" stroke-width="1.8" stroke-linecap="round"/>
+        <path class="cloak" d="M253 67 Q241 70 235 84 Q243 81 250 86 Z" fill="#6b5444"/>
+        <path d="M251 91 L261 91 L262 75 L259 67 L253 67 L250 75 Z" fill="#3b2e26"/>
+        <path d="M251.5 66 Q251 57 256 57 Q261 57 260.5 66 Z" fill="#3b2e26"/>
+        <rect x="253" y="61" width="6" height="1.6" fill="#c9a676" fill-opacity=".6"/>
+      </g>
+    </g></g>
+    <g fill="#e8c48a">
+      <circle class="spray sp1" cx="232" cy="188" r="9"/>
+      <circle class="spray sp2" cx="240" cy="188" r="8"/>
+      <circle class="spray sp3" cx="385" cy="190" r="9"/>
+      <circle class="spray sp4" cx="395" cy="190" r="8"/>
+    </g>
 
     <!-- near dunes -->
     <path d="M0 196 Q200 172 400 190 T800 186 L800 220 L0 220Z" fill="#d8954d"/>
