@@ -1,3 +1,5 @@
+<img src="dune-header.svg" width="100%" alt="Dunes under two moons" />
+
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/gerryamurphy/gerryamurphy/sandworm-dark.svg" />
